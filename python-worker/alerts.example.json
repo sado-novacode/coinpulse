@@ -1,0 +1,8 @@
+{
+  "telegramBotToken": "PASTE-YOUR-BOT-TOKEN-HERE",
+  "telegramChatId": "PASTE-YOUR-CHAT-ID-HERE",
+  "alerts": [
+    { "id": "a1", "symbol": "BTC", "direction": "ABOVE", "target": 100000 },
+    { "id": "a2", "symbol": "ETH", "direction": "BELOW", "target": 1800 }
+  ]
+}

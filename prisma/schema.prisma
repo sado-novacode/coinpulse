@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Holding {
+  id        String   @id @default(cuid())
+  deviceId  String
+  coinId    String
+  symbol    String
+  name      String
+  amount    Float
+  buyPrice  Float
+  createdAt DateTime @default(now())
+
+  @@index([deviceId])
+}
+
+model Alert {
+  id          String    @id @default(cuid())
+  deviceId    String
+  coinId      String
+  symbol      String
+  name        String
+  direction   String // ABOVE | BELOW
+  targetPrice Float
+  status      String    @default("ACTIVE") // ACTIVE | TRIGGERED
+  triggeredAt DateTime?
+  createdAt   DateTime  @default(now())
+
+  @@index([deviceId])
+}
